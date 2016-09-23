@@ -299,6 +299,7 @@
 				7E4AB8381D8CA93A00A8F218 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
