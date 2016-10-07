@@ -15,20 +15,20 @@ class SwipeViewController: UIViewController {
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var anotherLabel: UILabel!
     
-    let people = ["girl1", "girl2", "guy1", "guy2"]
+    var people = [User]()
     var position = -1
     
     @IBAction func pressedLike(_ sender: UIButton) {
         changeLabel(newText: "Like")
-        nextImage()
+        nextPerson()
     }
     
     @IBAction func dislikePressed(_ sender: UIButton) {
         changeLabel(newText: "Nope")
-        nextImage()
+        nextPerson()
     }
     
-    func nextImage() {
+    func nextPerson() {
         position += 1
         
         if position >= people.count {
@@ -36,9 +36,14 @@ class SwipeViewController: UIViewController {
             return
         }
     
-        let imageName = people[position]
+        let person = people[position]
         
-        myImage.image = UIImage(named: imageName)
+        // Change the image
+        myImage.image = UIImage(named: person.imageUrl)
+        
+        // Change the info
+        myLabel.text = person.getBasicInfo()
+        //myLabel.sizeToFit()
     }
     
     
@@ -51,7 +56,32 @@ class SwipeViewController: UIViewController {
 
         print("Hello")
         changeLabel(newText: "Yo yoyo")
-        nextImage()
+        
+        
+        let u1 = User(name: "Cameron", age: 20, imageUrl: "guy1")
+        
+        let u2 = User(name: "Nhat", age: 19, imageUrl: "girl1")
+        
+        people.append(u1)
+        people.append(u2)
+        
+        
+        nextPerson()
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
