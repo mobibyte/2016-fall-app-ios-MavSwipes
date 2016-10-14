@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MavSwipes/SwipeViewController.swift"
-            timestampString = "496968965.22385"
+            timestampString = "498168964.930387"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "SwipeViewController"
             landmarkType = "3">
          </BreakpointContent>

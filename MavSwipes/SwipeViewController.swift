@@ -14,6 +14,7 @@ class SwipeViewController: UIViewController {
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var anotherLabel: UILabel!
+    @IBOutlet weak var profileContainerView: UIView!
     
     var people = [User]()
     var position = -1
@@ -35,15 +36,20 @@ class SwipeViewController: UIViewController {
             myLabel.text = "No mo people"
             return
         }
-    
+        
         let person = people[position]
         
-        // Change the image
-        myImage.image = UIImage(named: person.imageUrl)
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveLinear, animations: {
+            self.profileContainerView.alpha = 0
+        }) { (finished) in
+            self.myImage.image = UIImage(named: person.imageUrl)
+            self.myLabel.text = person.name
+            self.anotherLabel.text = person.getBasicInfo()
+        }
         
-        // Change the info
-        myLabel.text = person.getBasicInfo()
-        //myLabel.sizeToFit()
+        UIView.animate(withDuration: 0.15, delay: 0.2, options: .curveLinear, animations: {
+            self.profileContainerView.alpha = 1
+        }, completion: nil)
     }
     
     
@@ -58,12 +64,15 @@ class SwipeViewController: UIViewController {
         changeLabel(newText: "Yo yoyo")
         
         
-        let u1 = User(name: "Cameron", age: 20, imageUrl: "guy1")
-        
-        let u2 = User(name: "Nhat", age: 19, imageUrl: "girl1")
+        let u1 = User(name: "Jake", age: 20, imageUrl: "guy1")
+        let u2 = User(name: "Sarah", age: 19, imageUrl: "girl1")
+        let u3 = User(name: "Kelly", age: 19, imageUrl: "girl2")
+        let u4 = User(name: "John", age: 19, imageUrl: "guy2")
         
         people.append(u1)
         people.append(u2)
+        people.append(u3)
+        people.append(u4)
         
         
         nextPerson()
